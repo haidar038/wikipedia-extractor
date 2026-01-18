@@ -1,73 +1,138 @@
-# React + TypeScript + Vite
+# WikiSummarizer AI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+  <strong>Instantly summarize any Wikipedia article with AI-powered intelligence</strong>
+</p>
 
-Currently, two official plugins are available:
+<p align="center">
+  <a href="#features">Features</a> •
+  <a href="#demo">Demo</a> •
+  <a href="#installation">Installation</a> •
+  <a href="#usage">Usage</a> •
+  <a href="#tech-stack">Tech Stack</a> •
+  <a href="#license">License</a>
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+- 🚀 **Instant Summarization** - Get concise summaries of any Wikipedia article in seconds
+- 📏 **Adjustable Length** - Choose between Short, Medium, or Long summaries
+- 📋 **Easy Export** - Copy to clipboard, download as PDF or DOCX
+- 📚 **Source References** - View and copy original source citations
+- 🎨 **Clean UI** - Modern, minimal interface with responsive design
+- ⚡ **Fast & Lightweight** - Built with Vite for optimal performance
 
-## Expanding the ESLint configuration
+## 🖥️ Demo
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. Paste any Wikipedia URL (e.g., `https://en.wikipedia.org/wiki/Artificial_intelligence`)
+2. Select your preferred summary length
+3. Click **Summarize** and get your AI-generated summary
+4. Export as PDF, DOCX, or copy to clipboard
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Installation
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Prerequisites
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- [Node.js](https://nodejs.org/) 18+ or [Bun](https://bun.sh/)
+- [Groq API Key](https://console.groq.com/) for AI summarization
+
+### Setup
+
+1. **Clone the repository**
+
+    ```bash
+    git clone https://github.com/yourusername/wikipedia-extractor.git
+    cd wikipedia-extractor
+    ```
+
+2. **Install dependencies**
+
+    ```bash
+    bun install
+    # or
+    npm install
+    ```
+
+3. **Configure environment variables**
+
+    Create a `.env` file in the root directory:
+
+    ```env
+    VITE_GROQ_API_KEY=your_groq_api_key_here
+    ```
+
+4. **Start the development server**
+
+    ```bash
+    bun run dev
+    # or
+    npm run dev
+    ```
+
+5. Open [http://localhost:5173](http://localhost:5173) in your browser
+
+## 📦 Build for Production
+
+```bash
+bun run build
+# or
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The production-ready files will be in the `dist/` directory.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🔧 Tech Stack
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Category          | Technology           |
+| ----------------- | -------------------- |
+| **Framework**     | React 19             |
+| **Language**      | TypeScript           |
+| **Build Tool**    | Vite                 |
+| **Styling**       | Tailwind CSS 4       |
+| **Animations**    | Framer Motion        |
+| **Icons**         | Lucide React         |
+| **UI Components** | Radix UI (shadcn/ui) |
+| **AI Backend**    | Groq (Llama-3 70b)   |
+| **PDF Export**    | jsPDF                |
+| **DOCX Export**   | docx.js              |
+
+## 📁 Project Structure
+
 ```
+src/
+├── components/
+│   ├── Layout.tsx              # Main layout wrapper
+│   ├── ui/                     # Reusable UI components
+│   └── wiki-extractor/
+│       ├── InputSection.tsx    # URL input and controls
+│       ├── SummaryDisplay.tsx  # Summary card with actions
+│       └── ReferenceList.tsx   # Source references list
+├── services/
+│   ├── wikipedia.ts            # Wikipedia content extraction
+│   └── groq.ts                 # Groq AI summarization
+├── App.tsx                     # Main application
+├── main.tsx                    # Entry point
+└── index.css                   # Global styles
+```
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+<p align="center">
+  Made with ❤️ using React & Groq AI
+</p>
