@@ -1,4 +1,4 @@
-# WikiSummarizer AI
+# WikiSnap
 
 <p align="center">
   <strong>Instantly summarize any Wikipedia article with AI-powered intelligence</strong>

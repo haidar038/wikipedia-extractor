@@ -40,7 +40,7 @@ export function SummaryDisplay({ title, url, summary, wordCount, onDownloadPDF, 
             </div>
 
             {/* Main Content Body */}
-            <div className="px-6 md:px-8 py-6 text-foreground/80 text-base md:text-lg leading-relaxed">
+            <div className="px-6 md:px-8 py-6 text-foreground/80 text-base md:text-md leading-relaxed">
                 {summary ? <p className="whitespace-pre-wrap">{summary}</p> : <p className="text-muted-foreground italic">No summary generated yet.</p>}
             </div>
 
