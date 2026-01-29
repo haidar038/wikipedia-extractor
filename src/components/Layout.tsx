@@ -9,9 +9,12 @@ interface LayoutProps {
     children: React.ReactNode;
 }
 
+import SEO from "./SEO";
+
 export function Layout({ children }: LayoutProps) {
     return (
         <div className="min-h-screen bg-background text-foreground flex flex-col">
+            <SEO />
             <header className="w-full border-b border-border bg-card sticky top-0 z-50">
                 <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
                     <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="flex items-center gap-2.5">

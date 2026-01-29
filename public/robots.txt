@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://wikisnap.vercel.app/sitemap.xml
